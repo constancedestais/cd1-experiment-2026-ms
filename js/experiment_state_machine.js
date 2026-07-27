@@ -12,6 +12,7 @@ import {CD1_LearningTask} from "./CD1_LearningTask.js";
 import {run_demographics_questionnaire} from "./Demographics_questionnaire.js";
 import {endExperiment} from "./endExperiment.js";
 import {check_performance_after_practice} from "./check_performance.js";
+import {points2pounds} from "./functions/usefulFunctions.js";
 
 // ============================================================================
 // EXPERIMENT STATE MACHINE
@@ -151,7 +152,7 @@ function experiment_state_machine(exp) {
     case 10:
       console.log('State 10: End Experiment');
       exp.date_end = new Date();
-      exp.bonus_UK_pounds = exp.total_reward * exp.rate;
+      exp.bonus_UK_pounds = points2pounds(exp.total_reward, exp.rate);
       endExperiment.init(exp);
       break;
 

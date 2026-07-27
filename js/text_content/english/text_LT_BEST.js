@@ -6,9 +6,8 @@ var text_LT_BEST = {
     '<div class="titleInstruction"> Study Overview </div>',
     'This study consists of a first task followed by two other tasks. <strong>If you perform well enough on the first task, you will be able to move on to tasks 2 & 3, otherwise you will have to stop the study there.</strong><br>',
     'During the task, you will gain and lose outcomes displayed as experimental currency units (ECU).', 
-    'These ECUs will be converted into points that determine your final score.',
-    '<strong>You will start with 20 points.</strong> Your goal is to maximize your total number of points.',
-    '<strong>Please note that no real money will be paid. ECUs are symbolic and used only to represent points.</strong>',
+    'You will earn a monetary bonus in addition to your fixed compensation fee based on your final score (in ECU). The conversion rate is 100 ECU = 1£.',
+    '<strong>You will start with 20 ECU.</strong> Your goal is to maximize your total number of ECU.',
     ],
     //page 1
     [

@@ -1,5 +1,6 @@
 import { move_on_to_next_experiment_state } from "./move_on_to_next_experiment_state.js";
 import { record_general_participant_info } from "./record_general_participant_info.js";
+import { points2pounds } from "./functions/usefulFunctions.js";
 
 function check_performance_after_practice(exp) {
   /*
@@ -58,7 +59,7 @@ function check_performance_after_practice(exp) {
     `;
 
     // Record info about participant bonus, navigator, and task durations
-    exp.bonus_UK_pounds = exp.total_reward * exp.rate;
+    exp.bonus_UK_pounds = points2pounds(exp.total_reward, exp.rate);
     
     // Only call record function if NOT in test mode
     if (!exp.test_mode_do_NOT_send_data) {

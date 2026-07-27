@@ -8,7 +8,6 @@ var text_LT_WORST = {
     'During the task, you will gain and lose outcomes displayed as experimental currency units (ECU).', 
     'These ECUs will be converted into points that determine your final score.',
     '<strong>You will start with 20 points.</strong> Your goal is to maximize your total number of points.',
-    '<strong>Please note that no real money will be paid. ECUs are symbolic and used only to represent points.</strong>',
     ],
     //page 1
     [

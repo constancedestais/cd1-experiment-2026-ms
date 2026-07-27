@@ -377,7 +377,7 @@ function recordResponse(LT, exp) {
   let symbolA = LT.symbols['S' + pair[0]];
   let symbolB = LT.symbols['S' + pair[1]];
   
-  LT.feedback_type = LT.schedule[LT.session].fdb;
+  LT.feedback_type = LT.schedule[LT.trial_per_cycle].fdb;
   LT.is_gain_trial = symbolA.best_outcome > 0 ? 1 : 0;
   
   let symbol_top = ((LT.isbottom[0] == 0 ? symbolA : symbolB));
