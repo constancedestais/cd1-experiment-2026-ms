@@ -70,9 +70,6 @@ function check_performance_after_practice(exp) {
     console.log('Performance above threshold - INCLUSION');
     let practice_score = exp.total_reward.toFixed(2);
     
-    // Set up "inclusion" completion link (not used in simplified version)
-    link = exp.link_inclusion || exp.generic_prolific_link || "#";
-
     main_text = `
       <div class="col">
         <div class="col">

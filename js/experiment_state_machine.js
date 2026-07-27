@@ -92,8 +92,9 @@ function experiment_state_machine(exp) {
     case 5:
       console.log('State 5: Practice Performance Check');
       check_performance_after_practice(exp);
-      break;
+      //  Mid_task_exclusion_check(exp);
 
+      break;
     // =========================================================
     // STATE 6: LT REAL SESSIONS
     // =========================================================

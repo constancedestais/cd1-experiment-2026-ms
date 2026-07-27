@@ -66,17 +66,17 @@ let taskEndTxt = {
 
 let experimentEndTxt = {
     title : 'End',
-    text1 : 'This is the end of the experiment!',
-    text2 : 'Your final score is',
-    text3 : 'Thank you for your participation.',
-    button : 'Finish'
+    text1 : 'This is the end of the experiment, thank you for your participation!',
+    text2 : 'Your points will be converted into a monetary bonus using a conversion rate, and will be paid on top of your fixed participation fee. Your final score is',
+    text3 : 'Click on the button below to complete the experiment and return to Prolific.',
+    button : 'Complete the experiment'
 };
 
 
 let mid_task_exclusion_text = {
     exclusion_1 : 'Congratulations on finishing Task 1!',
     exclusion_2 : 'Unfortunately, your performance did not meet the criteria required to continue to the next task.',
-    exclusion_3 : 'Please click on the button below to complete the study.',
+    exclusion_3 : 'Please click on the button below to complete the study and return to Prolific.',
     button_Prolific : 'Finish study',
 
     inclusion_1 : 'Congratulations, you have successfully completed Task 1 and can move on to Tasks 2 and 3!',

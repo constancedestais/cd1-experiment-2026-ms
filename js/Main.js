@@ -31,6 +31,10 @@ var exp = {
     max_total_compensation: 4.00, // en £ - showUpFee + max_earned_bonus
     rate: 0.01,                   // taux de conversion ECU → £
     
+    // liens 
+    link_exclusion: 'TEMP',
+    link_inclusion: 'TEMP',
+    generic_prolific_link: 'https://app.prolific.com/',
     // -------------- STRUCTURE EXPÉRIMENTALE --------------
     
     // Design expérimental

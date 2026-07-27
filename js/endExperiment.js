@@ -47,8 +47,14 @@ var endExperiment = {
       </div>
     `;
     $("#Stage").html(EndText);
-    
-    let Buttons = `<div class="btn btn-default myBtn" style="background-color: #28a745;">Study complete – you can close this window</div>`;
+
+    let link = exp.link_inclusion || exp.generic_prolific_link || "#";
+    let Buttons;
+    if (exp.test_mode_do_NOT_send_data === 1) {
+      Buttons = `<div class="btn btn-default myBtn" style="background-color: #28a745; cursor: default;">Test Complete - Close Window</div>`;
+    } else {
+      Buttons = `<a href="${link}" class="btn btn-default myBtn" style="background-color: #28a745;">Study complete – click here to return to Prolific</a>`;
+    }
     $("#FinalButton").html(Buttons);
   },
 };
