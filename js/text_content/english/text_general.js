@@ -58,12 +58,6 @@ let demographics = {
 };
 
 // END SCREENS
-let taskEndTxt = {
-    text2 : 'You have completed this part of the experiment.', 
-    text3 : '',
-    button : 'Click here to continue to the next step'
-};
-
 let experimentEndTxt = {
     title : 'End',
     text1 : 'This is the end of the experiment, thank you for your participation!',
@@ -94,4 +88,4 @@ let mid_task_exclusion_text = {
 
 
 
-export{text_button,startExperiment,demographics,taskEndTxt,experimentEndTxt,mid_task_exclusion_text}
+export{text_button,startExperiment,demographics,experimentEndTxt,mid_task_exclusion_text}

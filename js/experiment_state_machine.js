@@ -8,7 +8,6 @@ import {checkCompatibility, getID, displayConsent} from "./start_experiment_func
 import {create_instructions_for_task} from "./Instructions.js";
 import {Quiz_LearningTask} from "./Instructions_quiz.js";
 import {CD1_LearningTask} from "./CD1_LearningTask.js";
-// CD1_TransferTask supprimé
 import {run_demographics_questionnaire} from "./Demographics_questionnaire.js";
 import {endExperiment} from "./endExperiment.js";
 import {check_performance_after_practice} from "./check_performance.js";
@@ -106,6 +105,7 @@ function experiment_state_machine(exp) {
         window.LT_continue_after_check();
       } else {
         console.error('State 6: No continuation function found');
+        alert('Error: Cannot continue to main task. Please refresh and try again.');
       }
       break;
 

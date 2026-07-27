@@ -125,14 +125,10 @@ function check_performance_after_practice(exp) {
       // Clear the performance check display
       $("#ContBox").empty();
       $("#Bottom").empty();
-      
-      // Call the continuation function stored by the Learning Task
-      if (window.LT_continue_after_check) {
-        window.LT_continue_after_check();
-      } else {
-        console.error('Cannot find Learning Task continuation function');
-        alert('Error: Cannot continue to main task. Please refresh and try again.');
-      }
+
+      // Advance the state machine to State 6, which calls the continuation
+      // function stored by the Learning Task (window.LT_continue_after_check)
+      move_on_to_next_experiment_state(1, exp);
     };
   }
 
