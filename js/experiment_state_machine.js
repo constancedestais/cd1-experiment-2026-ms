@@ -44,11 +44,7 @@ function experiment_state_machine(exp) {
     // =========================================================
     case 0:
       console.log(' State 0: Participant ID');
-      exp.prolific_ID = "PARTICIPANT_" + Date.now();
-      exp.manual_ID = exp.prolific_ID;
-      console.log('✓ Participant ID generated:', exp.prolific_ID);
-      exp.experiment_state = 1;
-      experiment_state_machine(exp);
+      getID(exp);
       break;
 
     // =========================================================
