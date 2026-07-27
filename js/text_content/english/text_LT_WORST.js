@@ -4,10 +4,11 @@ var text_LT_WORST = {
   //page 0 
   [
     '<div class="titleInstruction"> Study Overview </div>',
-    'This study consists of a first task followed by two other tasks. <strong>If you perform well enough on the first task, you will be able to move on to tasks 2 & 3, otherwise you will have to stop the study there.</strong><br>',
-    'During the task, you will gain and lose outcomes displayed as experimental currency units (ECU).', 
-    'These ECUs will be converted into points that determine your final score.',
-    '<strong>You will start with 20 points.</strong> Your goal is to maximize your total number of points.',
+    'This study consists of a first practice task followed by two other tasks.',
+    '<strong>If you perform well enough on the first practice task, you will be able to move on to tasks 2 & 3, otherwise you will have to stop the study there.</strong><br></br>',
+    'During tasks 2 & 3, you will gain and lose points displayed as experimental currency units (ECU).', 
+    'You will earn a monetary bonus in addition to your fixed compensation fee based on your final score (in ECU). The conversion rate is 100 ECU = 1£.',
+    '<strong>You will start with 20 ECU.</strong> Your goal is to maximize your total number of ECU.',
     ],
     //page 1
     [
@@ -68,7 +69,7 @@ var text_LT_WORST = {
     [    
     '<h4>Bonus for honesty about your confidence</h4>',
     'As mentioned in the previous instructions, after each choice, we will ask for your confidence level.', 
-    '<strong>At the end of each session</strong>, the computer will randomly select one of your trials from that session to determine if you win <strong>5 bonus points</strong>.',
+    '<strong>At the end of each session</strong>, the computer will randomly select one of your trials from that session to determine if you win <strong>20 bonus points</strong>.',
     'The system is designed so that <strong>you have the highest statistical chance of winning if you honestly report what you think</strong>. Overestimating or underestimating your confidence will result in fewer points on average.',  
 
     `<details style="margin: 20px 0;">

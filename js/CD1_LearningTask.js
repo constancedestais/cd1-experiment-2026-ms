@@ -41,7 +41,7 @@ let CD1_LearningTask = {
       worst_outcome_LOSS: -1.00,
       maximum_outcome_probability: 0.75,
       // **Matching Probability settings**
-      MP_bonus_per_session: 5, // 5 points per session
+      MP_bonus_per_session: 20, // 20 points per session
       MP_display_time_MS: 5000,
       // **Starting bonus**
       starting_bonus: 20,
