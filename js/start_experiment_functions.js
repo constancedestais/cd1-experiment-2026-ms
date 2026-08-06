@@ -50,6 +50,7 @@ function getID(exp) {
     // update prolific ID in exp variable
     exp.prolific_ID = params.get('PROLIFIC_PID');
     exp.session_ID = params.get('SESSION_ID');
+    exp.study_ID = params.get('STUDY_ID');
     // fill in automatically if URL parameters provide prolific ID
     document.getElementById('formPartID').value = exp.prolific_ID;
   }

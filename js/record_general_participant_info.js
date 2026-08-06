@@ -28,6 +28,7 @@ function record_general_participant_info(exp) {
           manual_ID:   exp.manual_ID,
           prolific_ID: exp.prolific_ID,
           session_ID:  exp.session_ID,
+          study_ID:    exp.study_ID,
           exp_ID:      exp.exp_ID,
           framing:     exp.framing,
           framing_label: exp.framing === 1 ? 'BEST' : 'WORST',
