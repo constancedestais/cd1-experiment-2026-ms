@@ -84,15 +84,6 @@
     background: #0056b3;
 }
 
-/* Thumb hidden until the participant makes their first click/drag/keypress */
-#confidence-slider.untouched::-webkit-slider-thumb {
-    opacity: 0;
-}
-
-#confidence-slider.untouched::-moz-range-thumb {
-    opacity: 0;
-}
-
 /* ============================================
    VALUE DISPLAY
    ============================================ */
@@ -104,10 +95,6 @@
     color: #007bff;
     text-align: center;
     min-height: 65px;
-}
-
-.confidence-value-display.untouched {
-    color: #ccc;
 }
 
 /* ============================================
@@ -171,18 +158,6 @@
 #validate-confidence:active {
     transform: translateY(0px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-#validate-confidence:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-    box-shadow: none;
-}
-
-#validate-confidence:disabled:hover {
-    background-color: #ccc;
-    transform: none;
-    box-shadow: none;
 }
 
 /* ============================================
