@@ -507,37 +507,41 @@ function askConfidence(LT, exp) {
   confidenceHTML += '</div>';
   
   confidenceHTML += '<div class="confidence-scale">';
-  confidenceHTML += '<input type="range" id="confidence-slider" ';
+  confidenceHTML += '<input type="range" id="confidence-slider" class="untouched" ';
   confidenceHTML += 'min="' + LT.settings.confidence_min + '" ';
   confidenceHTML += 'max="' + LT.settings.confidence_max + '" ';
-  confidenceHTML += 'step="' + LT.settings.confidence_step + '" ';
-  confidenceHTML += 'value="75">';
+  confidenceHTML += 'step="' + LT.settings.confidence_step + '">';
   confidenceHTML += '</div>';
-  
-  confidenceHTML += '<div class="confidence-value-display">';
-  confidenceHTML += '<span id="confidence-value">75</span>%';
+
+  confidenceHTML += '<div class="confidence-value-display untouched">';
+  confidenceHTML += '<span id="confidence-value">?</span>%';
   confidenceHTML += '</div>';
-  
+
   confidenceHTML += '<div class="confidence-labels">';
   confidenceHTML += '<span>' + LT.text_confidence.scale_min_label + '</span>';
   confidenceHTML += '<span>' + LT.text_confidence.scale_max_label + '</span>';
   confidenceHTML += '</div>';
-  
+
   confidenceHTML += '<div class="confidence-button">';
-  confidenceHTML += '<button id="validate-confidence" class="btn btn-primary">Validate</button>';
+  confidenceHTML += '<button id="validate-confidence" class="btn btn-primary" disabled>Validate</button>';
   confidenceHTML += '</div>';
-  
+
   confidenceHTML += '</div>';
-  
+
   $('#Vals').html(confidenceHTML);
   makeVisible("Vals");
-  
+
   LT.timestamp_confidence_start = Date.now();
-  
+
   document.getElementById('confidence-slider').addEventListener('input', function(e) {
+    if (e.target.classList.contains('untouched')) {
+      e.target.classList.remove('untouched');
+      document.querySelector('.confidence-value-display').classList.remove('untouched');
+      document.getElementById('validate-confidence').disabled = false;
+    }
     document.getElementById('confidence-value').textContent = e.target.value;
   });
-  
+
   document.getElementById('validate-confidence').addEventListener('click', function() {
     let confidence_value = parseInt(document.getElementById('confidence-slider').value);
     let confidence_rt = Date.now() - LT.timestamp_confidence_start;
