@@ -38,7 +38,8 @@ var exp = {
     // -------------- STRUCTURE EXPÉRIMENTALE --------------
     
     // Design expérimental
-    framing: null,                 // Sera assigné aléatoirement : 0 = WORST, 1 = BEST
+    framing: null,                 // Assigné au chargement : voir FORCE_FRAMING ci-dessous
+    FORCE_FRAMING: 0,              // 0 = tous les participants en WORST (déploiement actuel), 1 = tous en BEST, null = assignation aléatoire 50/50
     n_sessions: 3,                 // 3 sessions (0=practice, 1-2=real)
     n_trials_per_session: 48,      // 48 trials par session réelle
     total_trials: 96,              // Total de trials réels (2 sessions × 48)
@@ -139,19 +140,13 @@ var exp = {
 
 window.onload = setTimeout(function() {
     
-    // -------------- ASSIGNATION DU FRAMING (pour tests locaux) --------------
-    
-    // Méthode 1: Via paramètres URL (permet de tester les deux groupes)
-    // Exemple: file:///votre_chemin/Index.html?framing=0  (pour WORST)
-    // Exemple: file:///votre_chemin/Index.html?framing=1  (pour BEST)
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    if (urlParams.has('framing')) {
-        // Si le framing est passé dans l'URL
-        exp.framing = parseInt(urlParams.get('framing'));
-        console.log('🔧 Framing set via URL parameter:', exp.framing);
+    // -------------- ASSIGNATION DU FRAMING --------------
+
+    // FORCE_FRAMING (voir config ci-dessus) : 0 ou 1 pour forcer une condition, null pour un tirage aléatoire 50/50
+    if (exp.FORCE_FRAMING !== null) {
+        exp.framing = exp.FORCE_FRAMING;
+        console.log('🔒 Framing forced by FORCE_FRAMING config:', exp.framing);
     } else {
-        // Sinon, assignation aléatoire 50/50 pour test local
         exp.framing = Math.random() < 0.5 ? 0 : 1;
         console.log('🎲 Framing randomly assigned:', exp.framing);
     }
@@ -188,7 +183,7 @@ window.onload = setTimeout(function() {
     exp.session_ID = 'LOCAL_' + Date.now();
     
     console.log('==============================================');
-    console.log('🧪 LOCAL TEST MODE - EXPERIMENT INITIALIZATION');
+    console.log(exp.test_mode_do_NOT_send_data === 1 ? '🧪 LOCAL TEST MODE - EXPERIMENT INITIALIZATION' : '🚀 EXPERIMENT INITIALIZATION');
     console.log('==============================================');
     console.log('Experiment ID:', exp.exp_ID);
     console.log('Framing:', exp.framing === 1 ? 'BEST (choose best)' : 'WORST (avoid worst)');
@@ -199,9 +194,6 @@ window.onload = setTimeout(function() {
     console.log('Window size:', exp.windowWidth + 'x' + exp.windowHeight);
     console.log('Test mode:', exp.test_mode_do_NOT_send_data === 1 ? '✓ ON (no data saved)' : '✗ OFF (data will be saved)');
     console.log('MP mechanism:', 'Enabled (' + exp.MP_bonus_per_session + ' points/session, max ' + exp.MP_max_total_bonus + ' points)');
-    console.log('==============================================');
-    console.log('💡 TIP: To test specific framing, add ?framing=0 or ?framing=1 to URL');
-    console.log('   Example: file:///path/Index.html?framing=0');
     console.log('==============================================');
     
     // -------------- TEST CONNEXION BASE DE DONNÉES (désactivé en local) --------------
