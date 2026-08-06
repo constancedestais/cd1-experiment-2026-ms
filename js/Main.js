@@ -38,7 +38,8 @@ var exp = {
     // -------------- STRUCTURE EXPÉRIMENTALE --------------
     
     // Design expérimental
-    framing: null,                 // Assigné au chargement : via ?framing= dans l'URL, sinon 0 (WORST) par défaut
+    framing: null,                 // Assigné au chargement : voir FORCE_FRAMING ci-dessous
+    FORCE_FRAMING: 0,              // 0 = tous les participants en WORST (déploiement actuel), 1 = tous en BEST, null = assignation aléatoire 50/50
     n_sessions: 3,                 // 3 sessions (0=practice, 1-2=real)
     n_trials_per_session: 48,      // 48 trials par session réelle
     total_trials: 96,              // Total de trials réels (2 sessions × 48)
@@ -141,18 +142,13 @@ window.onload = setTimeout(function() {
     
     // -------------- ASSIGNATION DU FRAMING --------------
 
-    // Le framing est fixé via le paramètre ?framing= dans l'URL de déploiement.
-    // Exemple : https://.../Index.html?framing=0  (WORST - lien de déploiement actuel)
-    // Exemple : https://.../Index.html?framing=1  (BEST)
-    // Si le paramètre est absent, on retombe sur WORST par défaut.
-    const urlParams = new URLSearchParams(window.location.search);
-
-    if (urlParams.has('framing')) {
-        exp.framing = parseInt(urlParams.get('framing'));
-        console.log('🔧 Framing set via URL parameter:', exp.framing);
+    // FORCE_FRAMING (voir config ci-dessus) : 0 ou 1 pour forcer une condition, null pour un tirage aléatoire 50/50
+    if (exp.FORCE_FRAMING !== null) {
+        exp.framing = exp.FORCE_FRAMING;
+        console.log('🔒 Framing forced by FORCE_FRAMING config:', exp.framing);
     } else {
-        exp.framing = 0;
-        console.log('⚠️ No framing URL parameter found, defaulting to WORST (0)');
+        exp.framing = Math.random() < 0.5 ? 0 : 1;
+        console.log('🎲 Framing randomly assigned:', exp.framing);
     }
     
     // -------------- CONFIGURATION SELON LE FRAMING --------------
