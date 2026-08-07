@@ -40,6 +40,7 @@ let CD1_LearningTask = {
       best_outcome_LOSS: -0.10,
       worst_outcome_LOSS: -1.00,
       maximum_outcome_probability: 0.75,
+      maximum_outcome_probability_practice: 0.90,
       // **Matching Probability settings**
       MP_bonus_per_session: 20, // 20 points per session
       MP_display_time_MS: 5000,
@@ -132,11 +133,11 @@ let CD1_LearningTask = {
       // Create practice session symbols (4 symbols: 1 gain pair, 1 loss pair)
       let symbol_image_file_number = LT.session;
       LT.symbols = create_four_symbols(
-        LT.settings.best_outcome_GAIN, 
-        LT.settings.worst_outcome_GAIN, 
-        LT.settings.best_outcome_LOSS, 
-        LT.settings.worst_outcome_LOSS, 
-        LT.settings.maximum_outcome_probability, 
+        LT.settings.best_outcome_GAIN,
+        LT.settings.worst_outcome_GAIN,
+        LT.settings.best_outcome_LOSS,
+        LT.settings.worst_outcome_LOSS,
+        LT.settings.maximum_outcome_probability_practice,
         symbol_image_file_number
       );
       

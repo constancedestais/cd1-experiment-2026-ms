@@ -5,9 +5,17 @@ import { points2pounds } from "./functions/usefulFunctions.js";
 function check_performance_after_practice(exp) {
   /*
   Function that:
-  - Checks if participant has pcorrect > 59.8% after practice session
-  - If pcorrect <= 59.8%, participant is excluded and experiment ends
-  - If pcorrect > 59.8%, participant continues to real Learning Task sessions
+  - Checks if participant has pcorrect >= 75% after practice session
+  - If pcorrect < 75%, participant is excluded and experiment ends
+  - If pcorrect >= 75%, participant continues to real Learning Task sessions
+
+  Threshold derivation (binomial test against chance, p = 0.5):
+  20 practice trials total (2 pairs x 10 trials/pair), each trial is a
+  Bernoulli(0.5) event under the null hypothesis of guessing at chance.
+  For n = 20, p = 0.5: P(X >= 14) = 5.77% (not significant),
+  P(X >= 15) = 2.07% (significant at alpha = 0.05, one-tailed).
+  So >= 15/20 correct (75%) is required to conclude performance is
+  above chance.
   */
 
   console.log('--- check_performance_after_practice() ---');
@@ -39,7 +47,7 @@ function check_performance_after_practice(exp) {
   let link = "";
 
   // ------ Display different messages based on value of pcorrect ------
-  if (exp.pcorrect_LearningTask <=0.598) { 
+  if (exp.pcorrect_LearningTask < 0.75) {
     // EXCLUSION: Participant must terminate the experiment
     console.log(' Performance below threshold - EXCLUSION');
     
@@ -93,7 +101,7 @@ function check_performance_after_practice(exp) {
   $("#Stage").html(`<div class="row justify-content-center">${main_text}</div>`);
   
   // Add button
-  if (exp.pcorrect_LearningTask <=0.598) {
+  if (exp.pcorrect_LearningTask < 0.75) {
     // EXCLUSION: Button to return to Prolific (or close window in test mode)
     let button_html = '';
     if (exp.test_mode_do_NOT_send_data === 1) {
