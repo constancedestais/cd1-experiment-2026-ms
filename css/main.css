@@ -80,7 +80,7 @@ input.myBtn:hover{
 
 /*------------------- DESIGN FOR THE MAIN CONTAINTER ; --------------------*/
 body {
-  background-color: #93b19b;
+  background-color: #0e441c;
 	/* other candidates:#FBFBFF #DDE2E3, #ebebec  #F4EDED*/
 }
 
@@ -118,11 +118,6 @@ ul li
    display: flex; 
   -ms-flex-wrap: wrap;
   flex-wrap: wrap; */
-}
-
-body {
-  background-color: #22477a;
-	/* other candidates:#FBFBFF #DDE2E3, #ebebec  #F4EDED*/
 }
 
 #SkipF {
